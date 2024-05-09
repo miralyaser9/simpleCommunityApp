@@ -2,8 +2,6 @@ import 'package:blogapp/models/post-model2.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-import '../models/post_model.dart';
-
 class CloudFirestoree{
   CollectionReference post =FirebaseFirestore.instance.collection('posts');
   FirebaseAuth U=FirebaseAuth.instance;

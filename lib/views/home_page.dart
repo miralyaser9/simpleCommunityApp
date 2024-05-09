@@ -12,8 +12,8 @@ import '../helpers/auth_help.dart';
 
 class Homepage extends StatelessWidget {
    Homepage({Key? key}) : super(key: key);
-   AuthenticationHelper auth = AuthenticationHelper();
 
+   AuthenticationHelper auth = AuthenticationHelper();
 
   PostController postController=Get.put(PostController());
 
@@ -28,8 +28,10 @@ class Homepage extends StatelessWidget {
           const ListTile(title: Text("My Profile",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16),),leading: Icon(Icons.person),
           ),
           InkWell(onTap: (){
-            Get.dialog(AlertDialog(content: Text("Do you want to leave?"),actions: [
-              TextButton(onPressed: (){
+            Get.dialog(
+                AlertDialog(
+                  content: const Text("Do you want to leave?"),actions: [
+                TextButton(onPressed: (){
                 auth.signOut();
                 Get.snackbar("note", "Come again later!");
                 Get.to(LoginPage());
@@ -46,7 +48,7 @@ class Homepage extends StatelessWidget {
     ),
     ),
       backgroundColor: Colors.lightBlueAccent,
-      appBar: AppBar(title: Text("Community Page",style: TextStyle(color: Colors.blueAccent),),centerTitle: true,backgroundColor: Colors.white,),
+      appBar: AppBar(title: const Text("Community Page",style: TextStyle(color: Colors.blueAccent),),centerTitle: true,backgroundColor: Colors.white,),
     body:
     Obx(() {
       if (postController.isLoading.value==true){

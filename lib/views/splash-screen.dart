@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:lottie/lottie.dart';
 
 
 class SplashScreen extends StatefulWidget {
@@ -35,8 +36,7 @@ class _SplashScreenState extends State<SplashScreen> {
           padding: const EdgeInsets.all(8.0),
           child: Container(child:
           ClipRRect(borderRadius: BorderRadius.circular(80),
-              child: Image.network(
-                  'https://cdn.dribbble.com/users/239075/screenshots/6076217/media/3c1ddca9e932e103aa8df2790925fd79.gif'))),
+              child: Lottie.asset("lib/images/Animation.json"))),
         ),
       ),
 

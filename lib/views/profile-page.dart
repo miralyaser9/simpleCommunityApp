@@ -1,6 +1,5 @@
 import 'package:blogapp/helpers/cloud-firestore.dart';
 import 'package:blogapp/models/post-model2.dart';
-import 'package:blogapp/views/single_post.dart';
 import 'package:blogapp/widgets/view-dialog.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -11,11 +10,12 @@ import '../controllers/post_controller.dart';
 
 class ProfilePage extends StatelessWidget {
    ProfilePage({Key? key}) : super(key: key);
+
   PostController postController=Get.put(PostController());
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(title: Text("My Profile"),centerTitle: true,
+    return Scaffold(appBar: AppBar(title: const Text("My Profile"),centerTitle: true,
     ),body:
 
     StreamBuilder<List<Post>>(
@@ -27,7 +27,8 @@ class ProfilePage extends StatelessWidget {
           return const Center(child: CircularProgressIndicator());
         }
         else{
-          return ListView.builder(itemCount: snapshot.data!.length,
+          return ListView.builder(
+              itemCount: snapshot.data!.length,
               itemBuilder: (context,index){
                return Padding(
                  padding: const EdgeInsets.all(16.0),
@@ -70,20 +71,20 @@ class ProfilePage extends StatelessWidget {
                                    Get.dialog(
                                        AlertDialog(
                                          content:
-                                         TextFormField(decoration: InputDecoration(hintText: "write a comment",
+                                         TextFormField(decoration: const InputDecoration(hintText: "write a comment",
                                          ),),
                                          actions: [TextButton(onPressed: (){
                                            Get.back();
                                          },
-                                             child: Text("send")),
+                                             child: const Text("send")),
                                            TextButton(onPressed: (){Get.back();},
-                                               child: Text("close")),
+                                               child: const Text("close")),
                                          ],
 
                                        )
                                    );
                                  }, child: const Row(children: [Icon(Icons.note_alt_sharp),Text("Comment")],)),
-                             ElevatedButton(onPressed: (){}, child: Row(children: [Icon(Icons.share),Text("Share")],))
+                             ElevatedButton(onPressed: (){}, child: const Row(children: [Icon(Icons.share),Text("Share")],))
                            ],),
                        ],),
                    ),
@@ -99,7 +100,7 @@ class ProfilePage extends StatelessWidget {
           viewDialog();
         }
         ,backgroundColor: Colors.lightBlueAccent,child:
-        Icon(Icons.upload),
+        const Icon(Icons.upload),
       ),
     );
   }
